@@ -1,0 +1,33 @@
+class Solution {
+    static int memo[];
+    
+    public int fib(int n) {
+        memo = new int[31];
+        return solve(n);
+    }
+    
+    public static int solve(int n) {
+        if (n == 0) 
+            return 0;
+        if (n == 1) 
+            return 1;
+        int res = solve(n-1) + solve(n-2);
+        memo[n] = res;
+        return res;
+    }
+    
+    
+    
+//     int res = -1;
+//         if (n == 0) 
+//             return 0;
+//         if (n == 1)
+//             return 1;
+//         if (ready[n]) 
+//             return memo[n];
+//         res = fib(n-1) + fib(n-2);
+//         ready[n] = true;
+//         memo[n] = res;
+//         return res;
+        
+}

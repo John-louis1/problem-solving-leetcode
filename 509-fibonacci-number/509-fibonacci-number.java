@@ -11,23 +11,12 @@ class Solution {
             return 0;
         if (n == 1) 
             return 1;
+        if (memo[n] != 0)
+            return memo[n];
         int res = solve(n-1) + solve(n-2);
         memo[n] = res;
         return res;
     }
     
-    
-    
-//     int res = -1;
-//         if (n == 0) 
-//             return 0;
-//         if (n == 1)
-//             return 1;
-//         if (ready[n]) 
-//             return memo[n];
-//         res = fib(n-1) + fib(n-2);
-//         ready[n] = true;
-//         memo[n] = res;
-//         return res;
         
 }

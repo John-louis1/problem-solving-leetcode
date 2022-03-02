@@ -2,7 +2,7 @@
 class Solution {
     static int memo[];
     
-    static int tribonacci(int n) {
+    static void generate() {
         memo = new int [38];
         memo[0] = 0; 
         memo[1] = 1; 
@@ -10,6 +10,10 @@ class Solution {
         for (int i = 3; i <= 37; i++) {
             memo[i] = memo[i-3] + memo[i-2] + memo[i- 1];
         }
+    }
+    
+    static int tribonacci(int n) {
+        generate();
         return memo[n];
     }
 }

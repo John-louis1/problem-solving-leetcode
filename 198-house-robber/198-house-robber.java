@@ -9,14 +9,10 @@ class Solution {
         Arrays.fill(memo, -1);
         
         memo[0] = nums[0];
-        for (int i = 1; i < nums.length; i++) {
-            if (i == 1) {
-                memo[i] = Math.max(nums[i], memo[i-1]);
-            }
-            else {
-                memo[i] = Math.max((nums[i]+memo[i-2]), memo[i-1]);
-            }
-        }
+        if (nums.length > 1)
+            memo[1] = Math.max(nums[1], memo[0]);
+        for (int i = 2; i < nums.length; i++) 
+            memo[i] = Math.max((nums[i]+memo[i-2]), memo[i-1]);
         
         return memo[nums.length-1];
     }
